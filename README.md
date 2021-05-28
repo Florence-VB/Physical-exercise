@@ -327,7 +327,7 @@ from the overrepresentation of labels A in the sample.
 <p>Compares the accuracy of the previous predictors and of the predictions with a random forest.
 With almost 99.5% accuracy, another algorithm is less likely to provide better results.
 Overall, the analysis shows that random forest performs a better job in delineating the features that represent the best predictors for the quality of the exercise.
-roll_belt, pitch_belt,yaw_belt, magnet_dumbbell_y, magnet_dumbbell_z, roll_forearm, pitch_forearm are the most important predictors based on Random forest (see the graph aside from the html file).<p>
+roll_belt, pitch_belt,yaw_belt, magnet_dumbbell_y, magnet_dumbbell_z, roll_forearm, pitch_forearm are the most important predictors based on Random forest (see the graph aside named VarImp_RF).<p>
 <div class="chunk" id="unnamed-chunk-11"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">modelRF</span><span class="hl kwb">=</span><span class="hl kwd">randomForest</span><span class="hl std">(classe</span><span class="hl opt">~</span><span class="hl std">.,</span> <span class="hl kwc">data</span><span class="hl std">=trainingset,</span> <span class="hl kwc">method</span><span class="hl std">=</span><span class="hl str">'class'</span><span class="hl std">)</span>
 <span class="hl std">predRF</span><span class="hl kwb">=</span><span class="hl kwd">predict</span><span class="hl std">(modelRF,testingset,</span> <span class="hl kwc">type</span><span class="hl std">=</span><span class="hl str">'class'</span><span class="hl std">)</span>
 <span class="hl std">CitRF</span><span class="hl kwb">=</span><span class="hl kwd">confusionMatrix</span><span class="hl std">(predRF,testingset</span><span class="hl opt">$</span><span class="hl std">classe)</span>
@@ -395,7 +395,7 @@ roll_belt, pitch_belt,yaw_belt, magnet_dumbbell_y, magnet_dumbbell_z, roll_forea
 </pre></div>
 </div></div>
 
-<p>Random forests giving the most accurate prediction, I use this model trained on the subset to predict the unlabelled data.</p>
+<p>Random forests giving the most accurate prediction with an out of sample prediction of less than 1%, I use this model trained on the subset to predict the unlabelled data.</p>
 
 
 <p>drops the variables in this subset to fit the prediction estimated with the training sample.</p>
